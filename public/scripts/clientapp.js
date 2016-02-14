@@ -1,20 +1,24 @@
 $(document).ready(function() {
-    $('#post-data').on('click', clickPostData);
+    $('#post-data').on('click', clickPostData); //equals - change name
     $('#clear').on('click', clearData);
     $('.operator-buttons').on('click', operatorButton);
+    $('.number-buttons').on('click', numberButton);
 });
 
 var selectedOperatorButton;
+var selectedNumberButton = '';
 var values = {};
 
 function clickPostData() {
     event.preventDefault();
-    console.log('send form');
+    values.numberTwo = selectedNumberButton;
+    console.log(values);
+    //console.log('send form');
 
-    $.each($('#post-form').serializeArray(), function(i, field) {
-        values[field.name] = field.value;
-
-    });
+    //$.each($('#post-form').serializeArray(), function(i, field) {
+    //    values[field.name] = field.value;
+    //
+    //});
 
     $.ajax({
         type: 'POST',
@@ -51,10 +55,22 @@ function operatorButton() {
     event.preventDefault();
     selectedOperatorButton = this.id;
     console.log('selectedOperatorButton: ' + selectedOperatorButton);
-
+    values.numberOne = selectedNumberButton;
     values.type = selectedOperatorButton;
+    selectedNumberButton = '';
     console.log(values);
+}
 
+function numberButton() {
+    event.preventDefault();
+    selectedNumberButton += this.id;
+    console.log(selectedNumberButton);
+    if(values.type) {
+        values.numberTwo = selectedNumberButton;
+    } else {
+    values.numberOne = selectedNumberButton;
+    }
+    console.log(values);
 }
 
 function clearData() {
@@ -62,4 +78,6 @@ function clearData() {
     console.log('clear form');
     $('#post-form').find('input[type=text]').val('');
     $('.calculated-total').text('');
+    selectedNumberButton = '';
+    values = {};
 }
