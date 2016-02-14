@@ -1,0 +1,11 @@
+body {
+    margin-top: 75px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+.calculated-total {
+    font-size: 33px;
+}

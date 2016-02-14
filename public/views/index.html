@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="./views/style.css" />
+    <script type="text/javascript" src="/vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/clientapp.js"></script>
+</head>
+<body>
+<div class="text-center">
+    <form id="post-form">
+        <div class="first-number">
+            <label for="numberOne">First Number:</label>
+            <input type="text" id="numberOne" name="numberOne" size="3"/>
+        </div>
+        <div>
+            <button class="operator-buttons" id="add">+</button>
+            <button class="operator-buttons" id="subtract">-</button>
+            <button class="operator-buttons" id="multiply">x</button>
+            <button class="operator-buttons" id="divide">/</button>
+        </div>
+        <div class="second-number">
+            <label for="numberTwo">Second Number:</label>
+            <input type="text" id="numberTwo" name="numberTwo" size="3" />
+        </div>
+        <div class="submit-button">
+            <button id="post-data">Calculate!</button>
+        </div>
+        <div class="clear-button">
+            <button id="clear">Clear</button>
+        </div>
+        <div class="calculated-total"></div>
+
+</form>
+</div>
+
+
+</body>
+</html>
