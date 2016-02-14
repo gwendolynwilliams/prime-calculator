@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var data = require('./routes/data');
-//var math = require('./routes/math');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
