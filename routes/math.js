@@ -1,6 +1,6 @@
 var whichOperator = function(req, res) {
-    req.body.numberOne = parseInt(req.body.numberOne);
-    req.body.numberTwo = parseInt(req.body.numberTwo);
+    req.body.numberOne = parseFloat(req.body.numberOne);
+    req.body.numberTwo = parseFloat(req.body.numberTwo);
 
     if (req.body.type == 'plus') {
         console.log('sum!');

@@ -1,11 +1,45 @@
-body {
-    margin-top: 75px;
-}
-
 div {
     margin-bottom: 15px;
+}
+
+button {
+    margin: 6px 6px 15px 0;
 }
 
 .calculated-total {
     font-size: 33px;
 }
+
+.operatorButtons {
+    margin-left: 10px;
+}
+
+.calculator {
+    margin: 75px 0 0 75px;
+}
+
+#dot, #minus {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+#post-data {
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.zero {
+    padding-left: 43px;
+    padding-right: 44px;
+}
+
+#times {
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+#dividedBy {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+

@@ -34,24 +34,56 @@ function clickPostData() {
 function operatorButton() {
     event.preventDefault();
     operator = this.id;
+    console.log(operator);
+
+    var domOperator;
+
+    switch (operator) {
+        case 'plus':
+            domOperator = '+';
+            break;
+        case 'minus':
+            domOperator = '-';
+            break;
+        case 'times':
+            domOperator = 'x';
+            break;
+        case 'dividedBy':
+            domOperator = '\u00F7';
+            break;
+    }
+    $('.calculated-total').text(domOperator + ' ');
+
     console.log('Operator: ' + operator);
     values.numberOne = selectedNumberButton;
     values.type = operator;
     selectedNumberButton = '';
     console.log(values);
-    $('.calculated-total').text(operator + ' ');
+
+
+
 }
 
 function numberButton() {
     event.preventDefault();
-    selectedNumberButton += this.id;
+    if(this.id == 'dot') {
+        selectedNumberButton += '.';
+    } else {
+
+        selectedNumberButton += this.id;
+
+    }
+
     console.log(selectedNumberButton);
+
     if(values.type) {
         values.numberTwo = selectedNumberButton;
     } else {
         values.numberOne = selectedNumberButton;
     }
+
     console.log(values);
+
     $('.calculated-total').text(selectedNumberButton + ' ');
 }
 
