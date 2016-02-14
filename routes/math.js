@@ -2,34 +2,27 @@ var whichOperator = function(req, res) {
     req.body.numberOne = parseFloat(req.body.numberOne);
     req.body.numberTwo = parseFloat(req.body.numberTwo);
 
+    var result;
+
     if (req.body.type == 'plus') {
         console.log('sum!');
-        sum = sum(req.body.numberOne, req.body.numberTwo);
-
-        console.log(sum);
-        res.send(sum);
+        result = sum(req.body.numberOne, req.body.numberTwo);
 
     } else if (req.body.type == 'minus') {
         console.log('subtract!');
-        diff = diff(req.body.numberOne, req.body.numberTwo);
-
-        console.log(diff);
-        res.send(diff);
+        result = diff(req.body.numberOne, req.body.numberTwo);
 
     } else if (req.body.type == 'times') {
         console.log('multiply!');
-        mult = mult(req.body.numberOne, req.body.numberTwo);
-
-        console.log(mult);
-        res.send(mult);
+        result = mult(req.body.numberOne, req.body.numberTwo);
 
     } else if (req.body.type == 'dividedBy') {
         console.log('divide!');
-        divide = divide(req.body.numberOne, req.body.numberTwo);
-
-        console.log(divide);
-        res.send(divide);
+        result = divide(req.body.numberOne, req.body.numberTwo);
     }
+
+    console.log(result);
+    res.send(result);
 };
 
 var sum = function(x,y) {
@@ -55,6 +48,8 @@ var divide = function(x,y) {
     number = number.toString();
     return number
 };
+
+
 
 exports.sum = sum;
 exports.diff = diff;

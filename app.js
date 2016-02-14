@@ -10,12 +10,6 @@ app.set('port', process.env.PORT || 5000);
 
 app.use('/data', data);
 
-//app.use('/math', math);
-
-//app.get('/math', function(req, res) {
-//    res.send({message: 'hello'});
-//});
-
 app.get('/*', function(req, res) {
     console.log("Here is the request: " , req.params);
     var file = req.params[0] || '/views/index.html';
