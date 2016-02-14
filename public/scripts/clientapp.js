@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('.number-buttons').on('click', numberButton);
 });
 
-var selectedOperatorButton;
+var operator;
 var selectedNumberButton = '';
 var values = {};
 
@@ -13,12 +13,6 @@ function clickPostData() {
     event.preventDefault();
     values.numberTwo = selectedNumberButton;
     console.log(values);
-    //console.log('send form');
-
-    //$.each($('#post-form').serializeArray(), function(i, field) {
-    //    values[field.name] = field.value;
-    //
-    //});
 
     $.ajax({
         type: 'POST',
@@ -30,35 +24,22 @@ function clickPostData() {
         success: function(data) {
             console.log('From Server: ', data);
             console.log(data);
-            //clickGetData();
             $('.calculated-total').text(data);
         }
 
     });
 
-
 }
-
-//function clickGetData() {
-//    event.preventDefault();
-//    $.ajax({
-//        type: 'GET',
-//        url: '/data',
-//        success: function(data) {
-//            console.log('get data ' + data);
-//            $('.calculated-total').append('hello!');
-//        }
-//    });
-//}
 
 function operatorButton() {
     event.preventDefault();
-    selectedOperatorButton = this.id;
-    console.log('selectedOperatorButton: ' + selectedOperatorButton);
+    operator = this.id;
+    console.log('Operator: ' + operator);
     values.numberOne = selectedNumberButton;
-    values.type = selectedOperatorButton;
+    values.type = operator;
     selectedNumberButton = '';
     console.log(values);
+    $('.calculated-total').text(operator + ' ');
 }
 
 function numberButton() {
@@ -68,9 +49,10 @@ function numberButton() {
     if(values.type) {
         values.numberTwo = selectedNumberButton;
     } else {
-    values.numberOne = selectedNumberButton;
+        values.numberOne = selectedNumberButton;
     }
     console.log(values);
+    $('.calculated-total').text(selectedNumberButton + ' ');
 }
 
 function clearData() {

@@ -7,47 +7,49 @@ var sum;
 var diff;
 var divide;
 
-router.get('/', function(req, res) {
-    res.send({message: 'hello'});
-});
+//router.get('/', function(req, res) {
+//    res.send({message: 'hello'});
+//});
 
 router.post('/', function(req, res) {
 
+    whichOperator(req, res);
+
+});
+
+function whichOperator(req, res) {
     req.body.numberOne = parseInt(req.body.numberOne);
     req.body.numberTwo = parseInt(req.body.numberTwo);
 
-
-    if (req.body.type == 'add') {
+    if (req.body.type == 'plus') {
         console.log('sum!');
         sum = sum(req.body.numberOne, req.body.numberTwo);
 
         console.log(sum);
         res.send(sum);
 
-    } else if (req.body.type == 'subtract') {
+    } else if (req.body.type == 'minus') {
         console.log('subtract!');
         diff = diff(req.body.numberOne, req.body.numberTwo);
 
         console.log(diff);
         res.send(diff);
 
-    } else if (req.body.type == 'multiply') {
+    } else if (req.body.type == 'times') {
         console.log('multiply!');
         mult = mult(req.body.numberOne, req.body.numberTwo);
 
         console.log(mult);
         res.send(mult);
 
-    } else if (req.body.type == 'divide') {
+    } else if (req.body.type == 'dividedBy') {
         console.log('divide!');
         divide = divide(req.body.numberOne, req.body.numberTwo);
 
         console.log(divide);
         res.send(divide);
     }
-});
-
-
+}
 
 function sum(x,y) {
     var number = x + y;
